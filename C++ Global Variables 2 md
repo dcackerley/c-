@@ -1,0 +1,98 @@
+//Dylan Ackerley COSC 1337 Section 011 MW 5:30pm-8:50pm
+//D1696872
+
+//
+//
+#include <iostream>
+
+using namespace std;                                                                                                     // used for cin, cout, std, helps me code faster and avoid reading errors
+
+
+class MovieData
+{
+private:                                                                                                                //Not using private because there is no input, thus nothing will ever be changed.
+    string Title, Director;
+    int YearReleased, RunningTime, ProductionCosts, Revenues;
+public:
+
+    const string getTitle() const {
+        return Title;
+    }
+
+    const string getDirector() const {
+        return Director;
+    }
+
+    int getYearReleased() const {
+        return YearReleased;
+    }
+
+    int getRunningTime() const {
+        return RunningTime;
+    }
+
+    int getProductionCosts() const {
+        return ProductionCosts;
+    }
+
+    int getRevenues() const {
+        return Revenues;
+    }
+
+    void MovieStats();
+    void MovieStats1();
+
+
+public:                                                                                                                 // This is going to be a 4 argument constructor (called member variables in the text)//
+    MovieData(string a, string b, int c, int d){
+        Title = a;
+        Director = b;
+        YearReleased = c;
+        RunningTime = d;
+    }
+
+    MovieData(string a, string b, int c, int d, int e, int f){                                                          // This will be the 6 argument constructor
+        Title = a;
+        Director = b;
+        YearReleased = c;
+        RunningTime = d;
+        ProductionCosts = e;
+        Revenues = f;
+    }
+};
+
+
+
+int main() {
+
+    MovieData movie1("Batman Begins","Christopher Nolan",2000,125);
+    MovieData movie2("The Matrix","Wachowski Brothers",2002,126);
+    MovieData movie3("Superman","Richard Donner",2003,123,463,516);
+    //cout << movie1.getTitle();
+    //cout << movie1.getDirector();
+
+    movie1.MovieStats(); //Uses movie1 constructor
+    movie2.MovieStats(); //Uses movie1 constructor
+    movie3.MovieStats1(); //Uses movie2 constructor
+
+
+    return 0;
+}
+
+void MovieData::MovieStats() {
+    cout << "-------Movie Listing-------" << endl;
+    cout << "Title: " << Title << endl;
+    cout << "Director: " << Director << endl;
+    cout << "Year: " << YearReleased << endl;
+    cout << "Runtime (in minutes): " << RunningTime << endl;
+}
+
+void MovieData::MovieStats1() {
+    cout << "--------Movie listing-------" << endl;
+    cout << "Title: " << Title << endl;
+    cout << "Director: " << Director << endl;
+    cout << "Year: " << YearReleased << endl;
+    cout << "Runtime (in minutes): " << RunningTime << endl;
+    cout << "ProductionCost's: " << ProductionCosts << endl;
+    cout << "Revenue's (in millions): $" << Revenues << endl;
+}
